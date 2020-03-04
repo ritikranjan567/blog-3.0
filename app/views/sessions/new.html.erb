@@ -1,0 +1,24 @@
+<div class=" form-container container col-sm-5">
+    <div class="text-center">
+        <h3><strong>Login</strong></h3>
+    </div>
+
+    <%= form_with scope: :session, url: sessions_path, local: true do |f| %>
+        <div class="form-group">
+            <%= f.label :email, "Email:" %>
+            <%= f.email_field :email, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :password, "Password:" %>
+            <%= f.password_field :password, class: "form-control" %>
+        </div>
+        <%= f.submit "Login", class: "btn btn-primary"%> <br>
+        <%= link_to 'Sign Up', new_user_path %>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class='bg-alert'>
+        <%= flash[:alert] %>
+    </div>
+    <% end %>
+</div>
