@@ -13,11 +13,11 @@
             <%= f.password_field :password, class: "form-control" %>
         </div>
         <%= f.submit "Login", class: "btn btn-primary"%> <br>
-        <%= link_to 'Sign Up', new_user_path %>
+        <%= link_to 'Sign Up', sign_up_path %>
     <% end %>
 
     <% if flash[:alert] %>
-      <div class='bg-alert'>
+      <div class='text-alert'>
         <%= flash[:alert] %>
     </div>
     <% end %>

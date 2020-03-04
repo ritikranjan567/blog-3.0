@@ -1,4 +1,5 @@
 <%= form_for @user, local: true do |f| %>
+  <%= render 'error' %>
   <div class="form-group">
     <%= f.label :name, "Name:" %>
     <%= f.text_field :name, class: "form-control" %>
@@ -15,7 +16,24 @@
     <%= f.label :password_confirmation, "Confirm Password:" %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
+  <div class="form-inline">
+    <%= f.label :gender, "Gender:" %> &nbsp; &nbsp;
+    <%= f.radio_button :gender, 'M' %> Male |
+    <%= f.radio_button :gender, 'F' %> Female
+  </div>
+  <div class="form-group">
+    <%= f.label :security_question, "Security Question:" %>
+    <%= f.select :security_question, options_for_select([['What is my pet name?', 'What is my pet name?'], ['What was my first pet?', 'What was my first pet?'], ['Day of my birth?', 'Day of my birth?'], ['What was my first salary?', 'What was my first salary?'], ['What was the name of my first crush?', 'What was the name of my first crush?']], 'what is my pet name?') %>
+    <%= f.label :security_answer, "Security Answer:" %>
+    <%= f.text_field :security_answer, class: "form-control" %>
+  </div>
 
-  <%= f.submit %>
+  <% if @user.id.nil? %>
+    <% button_name = 'Sign-up' %>
+    <% else %>
+    <% button_name = 'Update Profile' %>
+  <% end %>
+
+  <%= f.submit button_name, class: "btn btn-primary" %>
 
 <% end %>

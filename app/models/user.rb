@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     
+    before_save :encrypt_password
     has_many :articles
     has_many :comments 
     validates :name, presence: true
@@ -8,6 +9,7 @@ class User < ApplicationRecord
 
     validates :password, confirmation: true, length: {minimum:8}
     validates :password_confirmation, presence: true
+    validates :security_answer, presence: true, length: {maximum: 30}
 
     def self.authenticate(email, password)
         user = User.find_by email: email
