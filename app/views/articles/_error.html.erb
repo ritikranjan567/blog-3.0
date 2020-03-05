@@ -1,0 +1,11 @@
+<% if @article.errors.any? %>
+    <div id="error_info">
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li>
+           <%= msg %> 
+          </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

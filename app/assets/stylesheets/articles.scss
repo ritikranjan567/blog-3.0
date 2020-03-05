@@ -1,0 +1,15 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.color-select{
+  text-align: left;
+  float: left;
+}
+#summery_div{
+  height: 3em;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

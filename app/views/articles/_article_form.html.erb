@@ -1,0 +1,22 @@
+<%= form_for @article, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Title:" %>
+    <%= f.text_field :title, class: "form-control article-color" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, "Content:" %>
+    <%= f.text_area :content, class: "form-control article-color", rows: '10' %>
+  </div>
+  <div>
+    <span class="col-sm-6 color-select form-inline" style="padding: 0em;">
+      <%= f.label :bgcolor, "Background Color:" %>
+      <%= f.color_field :bgcolor, value: default_val(@article) %> &nbsp; &nbsp;
+    </span>
+    <span class="col-sm-6 color-select form-inline" style="padding: 0em;">
+      <%= f.label :text_color, "Text Color:" %>
+      <%= f.color_field :text_color %>
+    </span>
+  </div>
+
+  <%= f.submit %>
+<% end %>

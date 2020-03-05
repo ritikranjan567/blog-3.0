@@ -14,7 +14,10 @@
     <header class="container-fluid text-center">
       <h2><strong>Mock Blog</strong></h2>
       <% if current_user %>
-        <div style="float: right;"> Welcome <%= current_user.name %> </div>
+        <div style="float: right;"> 
+          Welcome <%= current_user.name %> &nbsp;
+          <%= link_to 'Logout', log_out_path %>
+        </div>
       <% end %>
     </header>
     <%= yield %>

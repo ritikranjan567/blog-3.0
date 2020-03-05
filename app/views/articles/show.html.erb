@@ -1,0 +1,11 @@
+<div class="container col-sm-6" style="background-color: <%= @article.bgcolor %>; color: <%= @article.text_color %>">
+  <div class="heading">
+    <h3 align="left"> <strong> <%= @article.title %> </strong> </h3>
+    <p align="right"> <%= @article.user.name %> </p>
+  </div>
+  <hr>
+  <p> <%= @article.content %> </p>
+  <% if @article.user_id == current_user.id %>
+    <%= link_to 'Edit', edit_article_path(@article) %>
+  <% end %>
+</div>

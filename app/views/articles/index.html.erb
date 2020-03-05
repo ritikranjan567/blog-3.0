@@ -1,0 +1,20 @@
+<div class="container-fluid">
+	<div class="container text-center">
+		<h2> Posted Articles </h2>
+	</div>
+  <%= link_to '+ New Article', new_article_path, class: "btn btn-success" %>
+  <% if @articles.any? %>
+    <% @articles.each do |article| %>
+      <div class="container coverage-summary col-sm-5" style="background-color: <%= article.bgcolor  %>; color: <%= article.text_color %>;">
+        <p> <strong> <%= article.title %> </strong> </p>
+        <p align="right", class="text-secondary"> ~ <%= article.user.name %> </p>
+        <div id="summery_div"><p><%= article.content %></p></div>
+        <%= link_to 'Read', article_path(article), class: "btn btn-info", style: "float: right;" %>
+        <br>
+        <hr>
+      </div>
+    <% end %>
+  <% else %>
+    <h3>No article yet.. Be the first one to write..</h3>
+  <% end %>
+</div>
